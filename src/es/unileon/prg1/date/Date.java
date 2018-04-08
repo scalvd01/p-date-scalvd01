@@ -244,22 +244,39 @@ public class Date {
 
 
 	//para imprimir todas las fechas hasta el final del mes
-	/*public String getDaysLeftOfMonth(){
+	public String getDaysLeftOfMonth(){
 		StringBuilder daysLeft = new StringBuilder();
 		
-		while(this.isDayRight()==true){
-			daysLeft.append((this.day+1) +"/"+this.month+"/"+this.year);
+		switch(this.month){
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+					for(int dias = this day; dias<=31; dias++){
+						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+					}
+					break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+					for(int dias = this day; dias<=30; dias++){
+						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+					}
+					break;
+			case 2: for(int dias = this day; dias<=28; dias++){
+						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+					}
+					break;
 		}
-		if(this.isDayRight()==true){
-			do {
-				daysLeft.append((this.day+1) +"/"+this.month+"/"+this.year);
-
-			}while(this.isDayRight()==true);
-				
-			
-		}
+		
 		return daysLeft.toString();
-	}*/
+	}
+
+
 
 	//para mostrar los meses con mismo n de dias 
 	public String getMonthsSameDays(){
@@ -367,7 +384,7 @@ public class Date {
 		String dia=null;
 		int resto=0;
 
-		
+
 	}
 
 
