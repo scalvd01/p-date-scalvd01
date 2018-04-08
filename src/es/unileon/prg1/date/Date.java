@@ -1,6 +1,6 @@
 package es.unileon.prg1.date;
 
-import java.util.Random;
+import java.util.Random;//para el numero aleatorio
 
 
 
@@ -10,7 +10,7 @@ public class Date {
 	private int month;
 	private int year;
 	
-	
+	//constructor con excepciones 
 	public Date(int day, int month, int year) throws DateException{
 		this.year = year;
 		if (month<1 || month>12){
@@ -105,13 +105,15 @@ public class Date {
 			return true;
 		}
 		return false;
-	}//simplificar los metodos sin if 
-	//falta
+	}
+
+
 
 
 
 
 	//para el nombre del mes
+
 	public String getMonthName(){
 
 		String monthName=null;
@@ -149,7 +151,12 @@ public class Date {
 	}
 
 
+
+
+
+
 	//para si el dia del mes esta bien
+
 	public boolean isDayRight(){
 		if (((this.month==1) || (this.month==3) || (this.month==5) || (this.month==7) || (this.month==8) || (this.month==10) || (this.month==12)) && ((this.day<=31) && (this.day>0))){
 			return true;
@@ -164,6 +171,8 @@ public class Date {
 			return false;
 		}
 	}
+
+
 
 
 
@@ -224,7 +233,10 @@ public class Date {
 
 
 
+
+
 	//para imprimir los meses restantes hasta final de año
+
 	public String getMonthsLeft(){
 		StringBuilder months = new StringBuilder();
 		int a = getMonth();
@@ -235,15 +247,23 @@ public class Date {
 		}
 		return months.toString();
 	}
-			
+	
+
+
+
 
 	//para imprimir la fecha
+
 	public String toString(){
 		return this.day + "/" + this.month + "/" + this.year;
 	}
 
 
+
+
+
 	//para imprimir todas las fechas hasta el final del mes
+
 	public String getDaysLeftOfMonth(){
 		StringBuilder daysLeft = new StringBuilder();
 		
@@ -255,20 +275,20 @@ public class Date {
 			case 8:
 			case 10:
 			case 12:
-					for(int dias = this day; dias<=31; dias++){
-						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+					for(int dias = this.day; dias<=31; dias++){
+						daysLeft.append(dias+"/"+this.month+"/"+this.year+" ");
 					}
 					break;
 			case 4:
 			case 6:
 			case 9:
 			case 11:
-					for(int dias = this day; dias<=30; dias++){
-						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+					for(int dias = this.day; dias<=30; dias++){
+						daysLeft.append(dias+"/"+this.month+"/"+this.year+" ");
 					}
 					break;
-			case 2: for(int dias = this day; dias<=28; dias++){
-						daysLeft.append(dias+"/"+this.month"/"+this.year" ")
+			case 2: for(int dias = this.day; dias<=28; dias++){
+						daysLeft.append(dias+"/"+this.month+"/"+this.year+" ");
 					}
 					break;
 		}
@@ -278,34 +298,38 @@ public class Date {
 
 
 
-	//para mostrar los meses con mismo n de dias 
+
+
+
+	//para mostrar los meses con el mismo numero de dias que una fecha
+
 	public String getMonthsSameDays(){
 		String monthsSameDays=null;
 		switch(this.month){
 
-			case 1: monthsSameDays = "Marzo, Mayo, Julio, Agosto, Octubre, Diciembre";
+			case 1: monthsSameDays = "Marzo, Mayo, Julio, Agosto, Octubre y Diciembre";
 					break;
 			case 2: monthsSameDays = "(ningún otro)";
 					break;
-			case 3: monthsSameDays = "Enero, Mayo, Julio, Agosto, Octubre, Diciembre";
+			case 3: monthsSameDays = "Enero, Mayo, Julio, Agosto, Octubre y Diciembre";
 					break;
-			case 4: monthsSameDays = "Junio, Septiembre, Noviembre";
+			case 4: monthsSameDays = "Junio, Septiembre y Noviembre";
 					break;
-			case 5: monthsSameDays = "Enero, Marzo, Julio, Agosto, Octubre, Diciembre";
+			case 5: monthsSameDays = "Enero, Marzo, Julio, Agosto, Octubre y Diciembre";
 					break;
-			case 6: monthsSameDays = "Abril, Septiembre, Noviembre";
+			case 6: monthsSameDays = "Abril, Septiembre y Noviembre";
 					break;
-			case 7: monthsSameDays = "Enero, Marzo, Mayo, Agosto, Octubre, Diciembre";
+			case 7: monthsSameDays = "Enero, Marzo, Mayo, Agosto, Octubre y Diciembre";
 					break;
-			case 8: monthsSameDays = "Enero, Marzo, Mayo, Julio, Octubre, Diciembre";
+			case 8: monthsSameDays = "Enero, Marzo, Mayo, Julio, Octubre y Diciembre";
 					break;
-			case 9: monthsSameDays = "Abril, Junio, Noviembre";
+			case 9: monthsSameDays = "Abril, Junio y Noviembre";
 					break;
-			case 10: monthsSameDays = "Enero, Marzo, Mayo, Julio, Agosto, Diciembre";
+			case 10: monthsSameDays = "Enero, Marzo, Mayo, Julio, Agosto y Diciembre";
 					break;
-			case 11: monthsSameDays = "Abril, Junio, Septiembre";
+			case 11: monthsSameDays = "Abril, Junio y Septiembre";
 					break;
-			case 12: monthsSameDays = "Enero, Marzo, Mayo, Julio, Agosto, Octubre";
+			case 12: monthsSameDays = "Enero, Marzo, Mayo, Julio, Agosto y Octubre";
 					break;
 			
 		}
@@ -313,7 +337,12 @@ public class Date {
 	}
 
 
+
+
+
+
 	//para contar el num de dias que han pasado en una fecha
+
 	public int daysPast(){
 		int days=0;
 
@@ -350,21 +379,39 @@ public class Date {
 
 
 
-	
+
+
+	//para el numero de intentos que tarda en acertar una fecha aleatoria
+
 	public int numRandomTriesEqualDate1(){
 		int count=0;
 		Random random=new Random();
 		int randomDay=0;
 		int randomMonth=0;
 
+
 		while((this.day!=randomDay) || (this.month!=randomMonth)){
-			randomMonth=random.nextInt(13)+1;
-			randomDay=random.nextInt(32)+1;
-			count=count+1;
+			if((this.month==1) || (this.month==3) || (this.month==5) || (this.month==7) || (this.month==8) || (this.month==10) || (this.month==12)){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(32)+1;
+				count=count+1;
+			}
+			else if((this.month==4) || (this.month==6) || (this.month==9) || (this.month==11)){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(31)+1;
+				count=count+1;
+			}
+			else if (this.month==2){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(29)+1;
+				count=count+1;
+			}
 		}
 		return count;
 
 	}
+
+	//lo mismo pero con do while
 
 	public int numRandomTriesEqualDate2(){
 		int count=0;
@@ -372,40 +419,55 @@ public class Date {
 		int randomDay=0;
 		int randomMonth=0;
 		do{
-			randomMonth=random.nextInt(13)+1;
-			randomDay=random.nextInt(32)+1;
-			count=count+1;
+			if((this.month==1) || (this.month==3) || (this.month==5) || (this.month==7) || (this.month==8) || (this.month==10) || (this.month==12)){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(32)+1;
+				count=count+1;
+			}
+			else if((this.month==4) || (this.month==6) || (this.month==9) || (this.month==11)){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(31)+1;
+				count=count+1;
+			}
+			else if (this.month==2){
+				randomMonth=random.nextInt(13)+1;
+				randomDay=random.nextInt(29)+1;
+				count=count+1;
+			}
 		}while((this.day!=randomDay) || (this.month!=randomMonth));
 
 		return count;
 	}
 
+
+
+
+
+	//para decir el dia de la semana de una fecha
+	
 	public String dayOfWeek(){
 		String dia=null;
-		int resto=0;
-
-
+		int resto = daysPast()%7;
+		
+		
+			switch(resto){
+				case 1: dia="Lunes";
+						break; 
+				case 2: dia="Martes";
+						break; 
+				case 3: dia="Miércoles";
+						break;
+				case 4: dia="Jueves";
+						break;
+				case 5: dia="Viernes";
+						break;
+				case 6: dia="Sábado";
+						break;
+				case 0: dia="Domingo";
+						break;
+			}
+		return dia;
 	}
-
 
 }
 
-
-
-
-
-/*	hacer 3 getters**
-	hacer 3 setters**
-	8 metodos is.Same: 4 con if** y 4 sin if
-	getMonthName**
-	isDayRight (int dia)**
-	getSeasonName**
-	getMonthLeft**
-	toString**
-	getDaysLeftOfMonth
-	getMonthsSameDays**
-	daysPast**
-	numRandomTriesEqualDate 1 con while**
-	numRandomTriesEqualDate 2 con do while**
-	dayOfWeek
-*/

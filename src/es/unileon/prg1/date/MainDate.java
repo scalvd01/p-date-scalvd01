@@ -20,11 +20,12 @@ public class MainDate {
 			System.out.println("La estación es: " + today.getSeasonName());
 			System.out.println("Los meses restantes son: "+today.getMonthsLeft());
 			System.out.println(today.toString());
-			//System.out.println(today.getDaysLeftOfMonth());
+			System.out.println(today.getDaysLeftOfMonth());
 			System.out.println("Los meses con el mismo nº de dias que "+today.getMonthName()+" son: "+today.getMonthsSameDays());
 			System.out.println("Han pasado "+today.daysPast()+" dias.");
 			System.out.println("Intentos: "+today.numRandomTriesEqualDate1());
 			System.out.println("Intentos: "+today.numRandomTriesEqualDate2());
+			System.out.println("La fecha "+today.toString()+" es: "+today.dayOfWeek());
 		}  
 		catch (DateException e) {
 				System.out.println(e.getMessage());
